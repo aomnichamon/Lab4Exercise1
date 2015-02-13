@@ -25,7 +25,7 @@ public class ListCourseActivity extends ActionBarActivity implements AdapterView
 
         helper = new CourseDBHelper(this);
         SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT _id,code,(grade || ' ' || credit) g FROM course ORDER BY _id DESC;",null);
+        Cursor cursor = db.rawQuery("SELECT _id,code,(grade || '( Credit ' || credit || ')' ) g FROM course ORDER BY _id DESC;",null);
         cursor.moveToFirst();
 
         adapter = new SimpleCursorAdapter(this,
